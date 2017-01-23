@@ -11,29 +11,30 @@ import SnapKit
 
 class MainViewController: UIViewController {
     fileprivate var tableView = UITableView()
+    fileprivate var buttonSearch = UIButton(type: .system)
+    fileprivate var editQuery = UITextField()
+    fileprivate var effectView = UIVisualEffectView(effect: UIBlurEffect())
+    
     var data: [SearchItem] = [SearchItem.JJ1(), SearchItem.JJ1()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initTableView()
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        
-        AppleMusicManager().search(query: "jack johnson") { items in
-            if let items = items {
-                DispatchQueue.main.async {
-                    self.data = items
-                    self.tableView.reloadData()
-                }
-            }
-        }
+        initSearch()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     private func initTableView() {
+        self.automaticallyAdjustsScrollViewInsets = false
+        
         view.addSubview(tableView)
         tableView.separatorStyle = .none
         
@@ -47,11 +48,59 @@ class MainViewController: UIViewController {
         }
     }
     
+    private func initSearch() {
+        
+        view.addSubview(effectView)
+        effectView.snp.makeConstraints { (make) in
+            make.top.equalTo(view)
+            make.right.left.equalTo(view)
+            make.height.equalTo(50)
+        }
+        
+        buttonSearch.tintColor = UIColor.lightGray
+        buttonSearch.setTitle("Search", for: .normal)
+        buttonSearch.addTarget(self, action: #selector(MainViewController.clickSearch), for: .touchUpInside)
+        view.addSubview(buttonSearch)
+        buttonSearch.snp.makeConstraints { (make) in
+            make.top.equalTo(view).offset(18)
+            make.right.equalTo(view).offset(-8)
+            make.width.equalTo(50)
+            make.height.equalTo(30)
+        }
+        
+        editQuery.placeholder = "Search"
+        editQuery.textColor = UIColor.white
+        editQuery.background = UIImage.stubImage
+        editQuery.delegate = self
+        view.addSubview(editQuery)
+        editQuery.snp.makeConstraints { (make) in
+            make.top.equalTo(view).offset(18)
+            make.left.equalTo(view).offset(8)
+            make.right.equalTo(view).offset(-60)
+            make.height.equalTo(30)
+        }
+    }
+    
     // MARK: - Public functions
     func launchInfo(with cell: SearchItemCell) {
         let vc = DetailItemViewController()
         vc.searchItem = cell.searchItem
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func clickSearch() {
+        guard let query = editQuery.text else {
+            return
+        }
+        
+        AppleMusicManager().search(query: query) { items in
+            if let items = items {
+                DispatchQueue.main.async {
+                    self.data = items
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
 }
 
@@ -84,5 +133,13 @@ extension MainViewController: UITableViewDelegate {
         if let cell = tableView.cellForRow(at: indexPath) as? SearchItemCell {
             launchInfo(with: cell)
         }
+    }
+}
+
+extension MainViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        clickSearch()
+        view.endEditing(true)
+        return false
     }
 }

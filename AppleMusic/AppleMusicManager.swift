@@ -19,7 +19,7 @@ public protocol Searchable {
 
 class AppleMusicManager: Searchable {
     public var searchResults: [SearchItem] = []
-    private let searchLimit = 10
+    private let searchLimit = 25
     private let URL_PATTERN = "https://itunes.apple.com/search?term=%@&limit=%d"
     
     func search(query: String, completion: @escaping SearchResults) {
