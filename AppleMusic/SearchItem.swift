@@ -9,7 +9,7 @@
 import Foundation
 
 //- В ячейках отображается имя артиста, название альбома и название песни, картинка artwork.
-struct SearchItem {
+public struct SearchItem {
     var artistName: String = ""
     var collectionName: String = ""
     var trackName: String = ""

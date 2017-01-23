@@ -15,6 +15,12 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
          initTableView()
+        
+        AppleMusicManager().search(query: "jack johnson") { items in
+            if let items = items {
+                print(items)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
