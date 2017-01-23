@@ -12,9 +12,15 @@ import SnapKit
 class DetailItemViewController: UIViewController {
     var searchItem: SearchItem!
     
+    fileprivate var artistName = UILabel()
+    fileprivate var collectionName = UILabel()
+    fileprivate var trackName = UILabel()
+    
     fileprivate var releaseDate = UILabel()
     fileprivate var primaryGenreName = UILabel()
     fileprivate var artwork = UIImageView()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +58,40 @@ class DetailItemViewController: UIViewController {
             make.top.equalTo(view).offset(86)
         }
         
+        
+        artistName.textAlignment = .left
+        artistName.font = UIFont.systemFont(ofSize: 13, weight: UIFontWeightRegular)
+        artistName.lineBreakMode = .byTruncatingTail
+        artistName.textColor = UIColor.black
+        artistName.backgroundColor = UIColor.clear
+        view.addSubview(artistName)
+        artistName.snp.makeConstraints { (make) -> Void in
+            make.centerX.equalTo(view)
+            make.top.equalTo(view).offset(100)
+        }
+        
+        collectionName.textAlignment = .left
+        collectionName.font = UIFont.systemFont(ofSize: 13, weight: UIFontWeightRegular)
+        collectionName.lineBreakMode = .byTruncatingTail
+        collectionName.textColor = UIColor.darkGray
+        collectionName.backgroundColor = UIColor.clear
+        view.addSubview(collectionName)
+        collectionName.snp.makeConstraints { (make) -> Void in
+            make.centerX.equalTo(view)
+            make.top.equalTo(view).offset(120)
+        }
+        
+        trackName.textAlignment = .left
+        trackName.font = UIFont.systemFont(ofSize: 13, weight: UIFontWeightRegular)
+        trackName.lineBreakMode = .byTruncatingTail
+        trackName.textColor = UIColor.gray
+        trackName.backgroundColor = UIColor.clear
+        view.addSubview(trackName)
+        trackName.snp.makeConstraints { (make) -> Void in
+            make.centerX.equalTo(view)
+            make.top.equalTo(view).offset(140)
+        }
+        
         udpateContent()
     }
     
@@ -72,6 +112,20 @@ class DetailItemViewController: UIViewController {
         if let genre = searchItem.primaryGenreName {
             primaryGenreName.text = "Genre: \(genre)"
         }
+        
+        if let artist = searchItem.artistName {
+            artistName.text = "artistName: \(artist)"
+        }
+        
+        if let collection = searchItem.collectionName {
+            collectionName.text = "collectionName: \(collection)"
+        }
+        
+        if let track = searchItem.trackName  {
+            trackName.text = "trackName: \(track)"
+        }
+
     }
 }
+
 
