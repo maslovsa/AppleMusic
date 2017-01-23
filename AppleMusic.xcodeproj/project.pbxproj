@@ -9,20 +9,24 @@
 /* Begin PBXBuildFile section */
 		0F1AF72AADA517BB7C9D6976 /* Pods_AppleMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99FE41E311B6BF758575CEED /* Pods_AppleMusic.framework */; };
 		8FD6CA6B1E35D95900D4911B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD6CA6A1E35D95900D4911B /* AppDelegate.swift */; };
-		8FD6CA6D1E35D95900D4911B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD6CA6C1E35D95900D4911B /* ViewController.swift */; };
-		8FD6CA701E35D95900D4911B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD6CA6E1E35D95900D4911B /* Main.storyboard */; };
+		8FD6CA6D1E35D95900D4911B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD6CA6C1E35D95900D4911B /* MainViewController.swift */; };
 		8FD6CA721E35D95900D4911B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FD6CA711E35D95900D4911B /* Assets.xcassets */; };
 		8FD6CA751E35D95900D4911B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD6CA731E35D95900D4911B /* LaunchScreen.storyboard */; };
+		8FD6CA7D1E35DBC000D4911B /* SearchItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD6CA7C1E35DBC000D4911B /* SearchItemCell.swift */; };
+		8FD6CA801E35DC3200D4911B /* SearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD6CA7F1E35DC3200D4911B /* SearchItem.swift */; };
+		8FD6CA831E35DF0600D4911B /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD6CA821E35DF0600D4911B /* UIImage+Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8FD6CA671E35D95900D4911B /* AppleMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FD6CA6A1E35D95900D4911B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8FD6CA6C1E35D95900D4911B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8FD6CA6F1E35D95900D4911B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8FD6CA6C1E35D95900D4911B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8FD6CA711E35D95900D4911B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FD6CA741E35D95900D4911B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8FD6CA761E35D95900D4911B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FD6CA7C1E35DBC000D4911B /* SearchItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchItemCell.swift; sourceTree = "<group>"; };
+		8FD6CA7F1E35DC3200D4911B /* SearchItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchItem.swift; sourceTree = "<group>"; };
+		8FD6CA821E35DF0600D4911B /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		99FE41E311B6BF758575CEED /* Pods_AppleMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppleMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A103C790432E6EDAE7CA075D /* Pods-AppleMusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleMusic.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppleMusic/Pods-AppleMusic.release.xcconfig"; sourceTree = "<group>"; };
 		C71EEC5E9489AE6BB83B69FB /* Pods-AppleMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleMusic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppleMusic/Pods-AppleMusic.debug.xcconfig"; sourceTree = "<group>"; };
@@ -79,13 +83,31 @@
 			isa = PBXGroup;
 			children = (
 				8FD6CA6A1E35D95900D4911B /* AppDelegate.swift */,
-				8FD6CA6C1E35D95900D4911B /* ViewController.swift */,
-				8FD6CA6E1E35D95900D4911B /* Main.storyboard */,
+				8FD6CA6C1E35D95900D4911B /* MainViewController.swift */,
+				8FD6CA7E1E35DBC400D4911B /* Cells */,
+				8FD6CA811E35DC5000D4911B /* Data */,
 				8FD6CA711E35D95900D4911B /* Assets.xcassets */,
+				8FD6CA821E35DF0600D4911B /* UIImage+Color.swift */,
 				8FD6CA731E35D95900D4911B /* LaunchScreen.storyboard */,
 				8FD6CA761E35D95900D4911B /* Info.plist */,
 			);
 			path = AppleMusic;
+			sourceTree = "<group>";
+		};
+		8FD6CA7E1E35DBC400D4911B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8FD6CA7C1E35DBC000D4911B /* SearchItemCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		8FD6CA811E35DC5000D4911B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8FD6CA7F1E35DC3200D4911B /* SearchItem.swift */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,7 +174,6 @@
 			files = (
 				8FD6CA751E35D95900D4911B /* LaunchScreen.storyboard in Resources */,
 				8FD6CA721E35D95900D4911B /* Assets.xcassets in Resources */,
-				8FD6CA701E35D95900D4911B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,7 +232,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FD6CA6D1E35D95900D4911B /* ViewController.swift in Sources */,
+				8FD6CA7D1E35DBC000D4911B /* SearchItemCell.swift in Sources */,
+				8FD6CA801E35DC3200D4911B /* SearchItem.swift in Sources */,
+				8FD6CA831E35DF0600D4911B /* UIImage+Color.swift in Sources */,
+				8FD6CA6D1E35D95900D4911B /* MainViewController.swift in Sources */,
 				8FD6CA6B1E35D95900D4911B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,14 +243,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8FD6CA6E1E35D95900D4911B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8FD6CA6F1E35D95900D4911B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8FD6CA731E35D95900D4911B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -333,6 +349,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C71EEC5E9489AE6BB83B69FB /* Pods-AppleMusic.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AppleMusic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -346,6 +363,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A103C790432E6EDAE7CA075D /* Pods-AppleMusic.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AppleMusic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
