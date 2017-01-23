@@ -38,7 +38,9 @@ class MainViewController: UIViewController {
 
     // MARK: - Public functions
     func launchInfo(with cell: SearchItemCell) {
-        
+        let vc = DetailItemViewController()
+        vc.searchItem = cell.searchItem
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
