@@ -12,22 +12,27 @@ import SnapKit
 class MainViewController: UIViewController {
     fileprivate var tableView = UITableView()
     var data: [SearchItem] = [SearchItem.JJ1(), SearchItem.JJ1()]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-         initTableView()
+        initTableView()
+        navigationController?.setNavigationBarHidden(true, animated: false)
         
         AppleMusicManager().search(query: "jack johnson") { items in
             if let items = items {
-                print(items)
+                DispatchQueue.main.async {
+                    self.data = items
+                    self.tableView.reloadData()
+                }
             }
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     private func initTableView() {
         view.addSubview(tableView)
         tableView.separatorStyle = .none
@@ -41,7 +46,7 @@ class MainViewController: UIViewController {
             make.edges.equalTo(view)
         }
     }
-
+    
     // MARK: - Public functions
     func launchInfo(with cell: SearchItemCell) {
         let vc = DetailItemViewController()

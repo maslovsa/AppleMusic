@@ -10,9 +10,9 @@ import Foundation
 
 //- В ячейках отображается имя артиста, название альбома и название песни, картинка artwork.
 public struct SearchItem {
-    var artistName: String = ""
-    var collectionName: String = ""
-    var trackName: String = ""
+    var artistName: String? = nil
+    var collectionName: String? = nil
+    var trackName: String? = nil
     var artworkUrl100: String? = nil
     var releaseDate: String? = nil
     var primaryGenreName: String? = nil

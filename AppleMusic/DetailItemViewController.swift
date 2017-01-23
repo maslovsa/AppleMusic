@@ -18,6 +18,7 @@ class DetailItemViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(false, animated: false)
         
         view.backgroundColor = UIColor.white
         

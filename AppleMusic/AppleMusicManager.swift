@@ -31,14 +31,30 @@ class AppleMusicManager: Searchable {
         Alamofire.request(path).validate().responseJSON {response in
             switch response.result {
             case .success(let data):
-                print("Validation Successful")
                 let json = JSON(data)
-                let newLinks = json["results"].arrayValue //.map({$0["link"].stringValue})
+                let newLinks = json["results"].arrayValue
                 self.searchResults = [SearchItem]()
                 for link in newLinks {
-                    print(link["artistName"].stringValue)
-                    //                    let item = SearchItem(artistName: link["artistName"].stringValue,
-//                                          collectionName: <#T##String#>, trackName: <#T##String#>, artworkUrl100: <#T##String?#>, releaseDate: <#T##String?#>, primaryGenreName: <#T##String?#>)
+                    var item = SearchItem()
+                    if let artistName = link["artistName"].string {
+                        item.artistName = artistName
+                    }
+                    if let collectionName = link["collectionName"].string {
+                        item.collectionName = collectionName
+                    }
+                    if let trackName = link["trackName"].string {
+                        item.trackName = trackName
+                    }
+                    if let artworkUrl100 = link["artworkUrl100"].string {
+                        item.artworkUrl100 = artworkUrl100
+                    }
+                    if let releaseDate = link["releaseDate"].string {
+                        item.releaseDate = releaseDate
+                    }
+                    if let primaryGenreName = link["primaryGenreName"].string {
+                        item.primaryGenreName = primaryGenreName
+                    }
+                    self.searchResults.append(item)
                 }
                 
                 completion(self.searchResults)
