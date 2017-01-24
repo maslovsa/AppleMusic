@@ -8,7 +8,7 @@ Language - Swift. Write an application that lets you search for songs based on i
 
 Additionally:
 
-- The interface is necessary to impose only in code;
+- All interface designs only in code;
 - Code to issue a repository on Github;
 - 2 hours time limit;
 
