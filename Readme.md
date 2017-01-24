@@ -11,3 +11,4 @@ API: https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web
 Дополнительно:
 - Интерфейс нужно верстать только в коде;
 - Код оформить в виде репозитория на Github;
+- 2 часа на выполнение;
