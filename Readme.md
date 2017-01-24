@@ -13,7 +13,7 @@ Additionally:
 - 2 hours time limit;
 
 
-
+====================================================================================================
 Язык - Swift.
 Напишите приложение, которое позволяет искать песни в базе iTunes.
 API: https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/
